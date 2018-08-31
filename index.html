@@ -1,0 +1,123 @@
+<html>
+	<head>
+		<title> Greeshma Weather Map </title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top special">
+		  <div class="container">
+			
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">Greeshma's Weather App</a>
+			</div>
+
+			
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			  <ul class="nav navbar-nav">
+				<li class="active"><a href="#mainDiv">Main</a></li>
+				<li><a href="#hourlyDiv">Hourly</a></li>
+				<li><a href="#dailyDiv">Daily</a></li>
+			  </ul>
+			  <form class="navbar-form navbar-right">
+				<div class="form-group">
+				  <input type="text" class="form-control" placeholder="City name" id="cityName">
+				</div>
+				<button type="button" class="btn btn-default" onclick="getWeather($('#cityName').val())">Get Weather</button>
+			  </form>
+			</div>
+		  </div>
+		</nav>
+		<div id="belownav"></div>
+		<div id="mainDiv">
+			<div class="container contentContainer">
+			    <div class="jumbotron">
+				    <p class="text-center">Weather in the city of <span id="city"></span></p><br/>
+				    <p id="todaytemp" class="text-center"></p>
+			    </div>
+				<div class="panel panel-info"  id="dayDiv">
+					<div class="panel-heading">
+						<h3 class="panel-title">Details for <span id='todayDetCity'></span></h3>
+					</div>
+				  
+					<div class="panel-body">
+						<table class="table table-bordered table-striped">
+								<tr>
+									<td>Pressure</td>
+									<td><span id="todayPressure"></span></td> 
+								</tr>
+								<tr>
+									<td>Humidity</td>
+									<td><span id="todayHumidity"></span></td> 
+								</tr>
+								<tr>
+									<td>Min.Temperature</td>
+									<td><span id="todayMintemp"></span></td> 
+								</tr>
+								<tr>
+									<td>Max. Temperature</td>
+									<td><span id="todayMaxtemp"></span></td> 
+								</tr>
+						</table>
+					</div>		  
+				</div>
+				<div class="panel panel-info" id="historyPanel">
+					<div class="panel-heading">
+						<h3 class="panel-title">Searched History</span></h3>
+					</div>
+					<div class="panel-body" id="historyContent">
+					</div>
+				</div> 		  
+			</div>
+		</div>
+
+		<div id="hourlyDiv">
+			<div class="container contentContainer">
+				<div class="panel panel-info" id="hourlyDiv">
+					<div class="panel-heading">
+						<h3 class="panel-title">Hourly Weather For <span id='todayDetCity'></span></h3>
+					</div>
+					<div class="panel-body">
+						<div class="row" id="hourlyWeather">
+								
+						</div>
+					</div>
+				</div>
+			</div>      
+		</div>
+		</div>
+
+
+		<div id="DailyDiv">
+			<div class="container contentContainer">
+				<div class="panel panel-info" id="dailyDiv">
+					<div class="panel-heading">
+						<h3 class="panel-title">Daily Weather for <span id='dailyDetCity'></span></h3>
+					</div>
+			        <div class="panel-body">
+						<div class="row" id="dailyWeather">
+								
+						</div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<script type="text/javascript" src="jscript.js" ></script> 
+
+		<script>
+			$(".contentContainer").css("min-height",$(window).height());		 
+		</script>
+
+	</body>
+</html>
